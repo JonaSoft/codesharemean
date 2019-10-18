@@ -44,8 +44,21 @@ flightsController.getFlight = async(req, res) => {
 flightsController.editFlight = async(req, res) => {
     const { id } = req.params;
     const flightporActualizar = {
-        market: req.body.market,
-        flightini: req.body.flightini
+        cliente:	body.cliente,
+        market:	    body.market,
+        flightini:	body.flightini,
+        origen:	    body.origen,
+        destino:	body.destino,
+        codope:	    body.codope,
+        fechainit:	body.fechainit,
+        fechaend:	body.fechaend,
+        frecuencia:	body.frecuencia,
+        clase:	    body.clase,
+        comentario:	body.comentario,
+        flightope:	body.flightope,
+        timedep:	body.timedep,
+        timearr:	body.timearr,
+        fechareg:	body.fechareg
             //market: "AA",
             //flightini: "9998"
     }

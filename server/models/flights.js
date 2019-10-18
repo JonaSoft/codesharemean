@@ -5,6 +5,7 @@ let Schema = mongoose.Schema;
 let flightData = new Schema({
     cliente: {
         type:String,
+        unique:true,
         required:[true,'Es necesario']
     },   
     market:{
