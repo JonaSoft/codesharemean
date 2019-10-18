@@ -136,10 +136,10 @@ export class SearchComponent implements OnInit {
  }
  updateFlight(form){
   this.dataService.putFlight(form.value)
-      .subscribe(res => {
+      //.subscribe(res => {
         //this.resetForm(form);
-        this.getFlights();
+       // this.getFlights();
         //M.toast({html: 'Updated Successfully'});
-      });
+      //});
 }
 }

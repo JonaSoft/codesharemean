@@ -10,10 +10,10 @@ export class DataService {
   selectedFlight:Flights;
   flights:Flights[]
 
-  URL_API = 'http://localhost:3000/';
+  URL_API = 'http://localhost:3000/flights';
  
   constructor(private http:HttpClient) {
-    this.selectedFlight = new Flights
+    this.selectedFlight = new Flights()
    }
    getFlights(){
     return this.http.get(this.URL_API)
@@ -24,7 +24,7 @@ export class DataService {
   }
   
   putFlight(flight:Flights){
-    return this.http.put(this.URL_API + `/${flight._id}`,flight);
+    //return this.http.put(this.URL_API + `/${flight._id}`,flight);
   }
 
   deleteFlight(_id:String){

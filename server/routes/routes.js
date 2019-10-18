@@ -1,4 +1,4 @@
-/*jshint esversion: 8 */
+ /*jshint esversion: 8 */
 const express = require('express');
 const router = express.Router();
 const controllers = require('../controllers/flights.controller');
@@ -6,7 +6,12 @@ const newFlight = require('../models/flights');
 
 
 //traer todos los flights
-router.get('/',controllers.getFlights);
+router.get('/',async(req, res) => {
+    const flights = await flightModelo.find();
+    res.json({
+        flights
+    })
+});
 
 //crear flight
 router.post('/flight', async(req, res) => {
