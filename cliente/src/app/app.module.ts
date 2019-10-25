@@ -5,6 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
+
+//Rutas
+import { APP_ROUTING } from './app.routes';
+//COMPONENTES
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -23,9 +27,10 @@ import { MantenaiceComponent } from './components/mantenaice/mantenaice.componen
   ],
   imports: [
     BrowserModule,
+    APP_ROUTING,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule   
   ],
   providers: [],
   bootstrap: [AppComponent]

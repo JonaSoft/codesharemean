@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
+import {DataService} from '../../servicios/data.service';
 
 @Component({
   selector: 'app-mantenaice',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MantenaiceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataExterna:DataService) { }
 
   ngOnInit() {
+  }
+  exportaMasivo(){
+    console.log('exportación masiva')
   }
 
 }

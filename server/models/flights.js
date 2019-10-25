@@ -18,12 +18,10 @@ let flightData = new Schema({
     },
     
     origen:{
-        type:String,
-        required:[true,'Es necesario']        
+        type:String        
     },
     destino:{
-        type:String,
-        required:[true,'Es necesario']
+        type:String
     },
     codope:{
         type:String,
@@ -54,12 +52,10 @@ let flightData = new Schema({
         required:[true,'Es necesario']
     },
     timedep:{
-        type:String,
-        required:[true,'Es necesario']
+        type:String
     },
     timearr:{
-        type:String,
-        required:[true,'Es necesario']
+        type:String
     },
     fechareg:{
         type:String,

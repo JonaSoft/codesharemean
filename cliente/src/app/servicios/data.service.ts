@@ -8,15 +8,25 @@ import { Flights } from '../models/flights';
 export class DataService {
   
   selectedFlight:Flights;
-  flights:Flights[]
+  flights:Flights[];
+  market:any;
+  flightini:any;
+  codope:any;
+  flightope:any;
+  origen:any;
+  destino:any;
+  fechainit:any;
+  cliente:any;
+  peticion:any;
+
 
   URL_API = 'http://localhost:3000/flights';
  
   constructor(private http:HttpClient) {
     this.selectedFlight = new Flights()
    }
-   getFlights(){
-    return this.http.get(this.URL_API)
+   getFlights(flightini:any){
+    return this.http.get(this.URL_API +`?${flightini}`)    
   }
   
   postFlight(flight:Flights){
@@ -29,6 +39,33 @@ export class DataService {
 
   deleteFlight(_id:String){
     return this.http.delete(this.URL_API + `/${_id}`)
+  }
+  //solicita data desde el formulario
+  mostrarDataForm(market:any,flightini:any,codope:any,flightope:any,origen:any,destino:any,fechainit:any){
+    
+    //PETICION POR SOLO MARKET
+    if(flightini=="" && codope=="" && flightope=="" && origen=="" && destino=="" && fechainit==undefined){
+      return this.http.get(this.URL_API +`?market=${market}`) 
+    }
+    if(market=="" && flightini=="" && codope=="" && flightope=="" && origen=="" && destino=="" && fechainit==undefined){
+      return this.http.get(this.URL_API +`?none`) 
+    }
+    //PETICION POR MARKETERO Y FLIGHTINI
+    if(codope=="" && flightope=="" && origen=="" && destino=="" && fechainit==undefined){
+      return this.http.get(this.URL_API +`?market=${market}&flightini=${flightini}`)  
+    }
+    //PETICION POR CODOPERATOR FLIGHTOPERATOR
+    if(market=="" && flightini=="" && origen=="" && destino=="" && fechainit==undefined){
+      return this.http.get(this.URL_API +`?codope=${codope}&flightope=${flightope}`)  
+    }
+    //PETICION POR ORIGEN Y DESTINO
+    if(market=="" && flightini=="" && codope=="" && flightope=="" && fechainit==undefined){
+      return this.http.get(this.URL_API +`?origin=${origen}&destinat=${destino}`)  
+    }
+    //PETICION POR MARKETERO Y OPERADOR
+    if( flightini=="" && flightope=="" && origen=="" && destino=="" && fechainit==undefined){
+      return this.http.get(this.URL_API +`?market=${market}&codope=${codope}`)  
+    }
   }
 
 }

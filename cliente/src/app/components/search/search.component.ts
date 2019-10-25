@@ -3,7 +3,7 @@ import { DataService } from 'src/app/servicios/data.service';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Flights } from '../../models/flights';
 
-let M:any;
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   _destino:string;
   _fechainit:any;
   mostrar:boolean=false;
+  aviso:boolean=false;
   view:boolean=true;
   hide:boolean=false;
   data:Flights[]=[];
@@ -62,25 +63,25 @@ export class SearchComponent implements OnInit {
   }
   getFlights() {
     this.data=[];
-    this.dataService.getFlights()
+    /*this.dataService.getFlights()
         .subscribe(res => {
         for(let i in res['flights']){
           this.data.push(res['flights'][i]);
         }
         console.log(this.data)
-      });
+      });*/
     
   }
   enviarForm(){
     console.log(this.forma.value);
     this.data=[];
-    this.dataService.getFlights()
+    /*this.dataService.getFlights()
         .subscribe(res => {
         for(let i in res['flights']){
           this.data.push(res['flights'][i]);
         }
         console.log(this.data)
-      });
+      });*/
       
     this._flightini = this.forma.value.flightini;
     this._market = this.forma.value.market.toUpperCase();
@@ -89,17 +90,34 @@ export class SearchComponent implements OnInit {
     this._origen = this.forma.value.origen.toUpperCase();
     this._destino = this.forma.value.destino.toUpperCase();
 
-    this.mostrar=true;
+    
     this.view=false;
     this.hide=true;
     //console.log(this.datos)
+    this.dataService.mostrarDataForm(this._market,this._flightini,this._codope,this._flightope,this._origen,this._destino,this._fechainit)
+    .subscribe(res => {
+      for(let i in res['flights']){
+        this.data.push(res['flights'][i]);
+      }
+      console.log(this.data)
+      if (this.data.length>0){
+        this.mostrar=true;
+        this.aviso=false
+
+      }else{
+        this.mostrar=false;
+        this.aviso=true
+      }
+    })
+
+
    
   }
   closeTable(forma:NgForm){
     this.hide = false;
     this.view = true;
     this.mostrar = false;
-    //this.aviso = false;
+    this.aviso = false;
     //this.flightArr = [ ];
     //this.flightFinal = [ ];
     this._market = "";
@@ -131,8 +149,8 @@ export class SearchComponent implements OnInit {
       //M.toast({html: 'Save Successfully'});
     });
   }*/
-  this.dataService.postFlight(data)
-  console.log(data,'insertado')
+  //this.dataService.postFlight(data)
+  //console.log(data,'insertado')
  }
  updateFlight(form){
   this.dataService.putFlight(form.value)

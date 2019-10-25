@@ -11,7 +11,7 @@
 "frecuencia":	"lunes",
 "clase":	"**",
 "comentario":	"Flight not Codeshare",
-"flightope":	"1",
+"flightope":	"11",
 "timedep":	"18:25",
 "timearr":	"12:40",
 "fechareg":	"16/09/2019"
@@ -19,7 +19,7 @@
 {	
 "cliente":	"AM2MADMEX16/09/2019_16/09/2019",
 "market":	"AM",
-"flightini":	"2",
+"flightini":	"22",
 "origen":	"MAD",
 "destino":	"MEX",
 "codope":	"AM",
@@ -28,7 +28,7 @@
 "frecuencia":	"lunes",
 "clase":	"**",
 "comentario":	"Flight not Codeshare",
-"flightope":	"2",
+"flightope":	"22",
 "timedep":	"14:40",
 "timearr":	"19:00",
 "fechareg":	"16/09/2019"
@@ -36,7 +36,7 @@
 {	
 "cliente":	"AM3MEXCDG16/09/2019_16/09/2019",
 "market":	"AM",
-"flightini":	"3",
+"flightini":	"33",
 "origen":	"MEX",
 "destino":	"CDG",
 "codope":	"AM",
